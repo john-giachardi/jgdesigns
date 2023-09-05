@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-portfolioindexpage{% endblock %}
+
+{% block content %}
+    <!-- <h1>{{ page.title }}</h1> -->
+<div class="hero">
+        <img src="{{ page.hero.file.url }}" alt="{{ page.hero.title }}">
+    <!-- <p>{{ item.caption }}</p> -->
+</div>
+<div class="content-wrapper">
+    <div class="main-text-intro">{{ page.intro|richtext }}</div>
+</div>
+<div class="content-wrapper no-top">
+    <div class="portfolio-posts-wrapper">
+        {% for post in portfoliopages %}
+        {% with post=post.specific %}
+            <div class="portfolio-posts-post">
+                <a href="{% pageurl post %}"><div class="portfolio-post-image-wrapper">{% image post.hero fill-650x350 %}</div></a>
+                <h3><a href="{% pageurl post %}">{{ post.title }}</a></h3>
+            </div>
+        {% endwith %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block body_class %}template-informationpage{% endblock %}
+
+
+
+
+{% block content %}
+<div class="hero">
+        <img src="{{ page.hero.file.url }}" alt="{{ page.hero.title }}">
+    <!-- <p>{{ item.caption }}</p> -->
+</div>
+
+<div class="content-wrapper">
+    <div class="information-page-content">
+        <h1>{{ page.title }}</h1>
+        <div class="information-page-content-text">
+            {{ page.body|richtext }}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

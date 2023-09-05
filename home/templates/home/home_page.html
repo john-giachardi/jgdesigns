@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+{% for item in page.hero_images.all %}
+<div class="home-hero">
+    {% image item.image original %}
+    <!-- <p>{{ item.caption }}</p> -->
+</div>
+{% endfor %}
+
+<div class="content-wrapper">
+    <div class="main-text-intro">{{ page.body|richtext }}</div>
+</div>
+
+<div class="content-wrapper no-top">
+    <div class="home-content-blocks">
+    {% for item in page.gallery_images.all %}
+        <figure class="home-content-block">{% image item.image fill-1000x600 %}
+            <figcaption>
+                <h2>{{ item.title }}</h2> 
+                <p>{{ item.caption }}</p>  
+                <a class="button" href="{{ item.link }}">Read More</a>
+            </figcaption>
+        </figure> 
+    {% endfor %}
+    </div>
+</div>
+<div class="content-wrapper">
+    <div class="site-posts-intro">
+        <h2>From the blog</h2>
+        <p>Stay up-to-date with the latest garden design trends, tips, and tricks by checking out our blog. We cover a wide range of topics, from plant care and landscaping ideas to outdoor living and sustainability, to help you make the most of your outdoor space.</p>
+        <p><a href="/blog">Visit the blog</a></p>
+    </div>
+    <div class="sitewide-pulled-posts">
+        {% for blog in page.blogs %}
+        {% with post=post.specific %}
+
+                <div class="sitewide-pulled-posts-post">
+                    <a href="{{ blog.url }}">
+                        {% with blog.main_image as main_image %}
+                        {% if main_image %}{% image main_image fill-400x400 %}{% endif %}
+                        {% endwith %}
+                    </a>
+                    <a href="{{ blog.url }}"><h3>{{ blog.title }}</h3></a>
+                    
+                </div>
+        {% endwith %}
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock content %}

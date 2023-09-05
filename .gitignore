@@ -1,0 +1,24 @@
+# Ignore database files
+db.sqlite3
+
+# Ignore secret settings
+myproject/settings/secret.py
+
+# Ignore static and media files (if you're using them)
+jgdesigns/static/
+jgdesigns/media/
+
+# Ignore virtual environment directories (e.g., if you're using venv or virtualenv)
+venv/
+env/
+.env
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore local development settings
+jgdesigns/settings/dev.py
+
+# Ignore logs
+logs/

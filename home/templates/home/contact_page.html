@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-contactpage{% endblock %}
+
+{% block content %}
+
+{% for item in page.contact_images.all %}
+<div class="hero">
+    {% image item.image fill-2000x1000 %}
+    <!-- <p>{{ item.caption }}</p> -->
+</div>
+{% endfor %}
+
+<div class="content-wrapper">
+    <div class="contact-content">
+        <div class="contact-content1">
+                {{ page.intro|richtext }}
+        </div>
+        <div class="contact-content2">
+                {{ page.body|richtext }}
+            <div class="contact-details">
+                <ul><li><h4>Email</h4>
+                    {{ page.contact1 }}
+                    </li>
+                    <li><h4>Phone</h4>
+                        <a href="">{{ page.contact2 }}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

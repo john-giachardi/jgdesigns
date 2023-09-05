@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block content %}
+<h1>Collection</h1>
+{{ page.image_collection.all }}
+    {% for image in images %}
+    {{ image.title }}
+    <img src="{{ image.image.url }}" alt="{{ image.title }}">
+    {{ image.description }}
+    {% endfor %}
+{% endblock %}
+

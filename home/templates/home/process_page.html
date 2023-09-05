@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-processpage{% endblock %}
+
+{% block content %}
+<div class="hero">
+        <img src="{{ page.hero.file.url }}" alt="{{ page.hero.title }}">
+    <!-- <p>{{ item.caption }}</p> -->
+</div>
+
+<div class="content-wrapper colour-content-wrapper">
+    <!-- <div class="about-intro">
+            {{ page.intro }}
+    </div> -->
+    <div class="design-process-intro">
+        <div class="design-process-title">
+            <h1>{{ page.title }}</h1>
+            <p>All of our gardens are bespoke, we work with you to create a unique space which will enhance the lives of you and your family.</p>
+        </div>
+        <div class="design-process-intro-text"><p>{{ page.intro }}</p></div>
+    </div>
+</div>
+<div class="content-wrapper">
+    <div class="design-process-content">
+        <div class="design-process-nav">
+            <div class="design-process-nav-heading">
+                <h2>Project Stages</h2>
+                <nav class="project-stages-nav">
+                    {% for item in page.phase_images.all %}
+                        <div class="project-stage"><a href="#stage{{ item.phase }}" class="scroll-link">{{ item.title }}</a></div>
+                    {% endfor %}
+                </nav>
+            </div>
+        </div>
+        <div class="design-process-steps">
+            {% for item in page.phase_images.all %}
+                <div id="stage{{ item.phase }}" class="design-process-step">
+                    <div class="design-process-step-image">{% image item.image fill-900x450 %}</div>
+                    <div class="design-process-step-content">
+                        <div class="design-process-step-title"><h3>{{ item.title }}</h3></div>
+                        <div class="design-process-step-text"><p>{{ item.caption }}</p></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- <div class="content-wrapper no-top">
+    <div class="process-page-content">
+        <div class="design-phases-wrapper">
+                {% for item in page.phase_images.all %}
+                    <div class="design-phase-single">
+                        <div class="phase-number"><h3>{{ item.phase }}</h3></div>
+                        {% image item.image fill-500x350 %}
+                        <div class="phase-title-content">
+                                <h4>{{ item.title }}</h4> 
+                                <p>{{ item.caption }}</p>
+                        </div>
+
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <h1>{{ page.title }}</h1> -->
+
+
+
+{% endblock content %}

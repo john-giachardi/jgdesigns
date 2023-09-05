@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-portfoliopage{% endblock %}
+
+{% block content %}
+<div class="hero full">
+        <img src="{{ page.hero.file.url }}" alt="{{ page.hero.title }}">
+</div>
+<div class="content-wrapper">
+    <div class="portfolio-page-intro-block">
+        <div class="portfolio-page-title">
+            <h1>{{ page.title }}</h1>
+        </div>
+        <div class="portfolio-page-intro">
+            <div class="intro">{{ page.intro|richtext }}</div>
+        </div>
+    </div>
+</div>
+<div class="content-wrapper">
+    <div class="portfolio-page-gallery">
+            {% for item in page.gallery_images.all|slice:":1" %}
+            <div class="portfolio-gallery-image gallery-1">
+                {% image item.image fill-900x600 %}
+            </div> 
+            {% endfor %}
+            {% for item in page.gallery_images.all|slice:"1:2" %}
+            <div class="portfolio-gallery-image gallery-2">
+                {% image item.image fill-900x600 %}
+            </div> 
+            {% endfor %}
+            {% for item in page.gallery_images.all|slice:"2:3" %}
+            <div class="portfolio-gallery-image gallery-3">
+                {% image item.image fill-2000x1400 %}
+            </div> 
+            {% endfor %}
+            <div class="portfolio-gallery-text gallery-4">
+                {{ page.body|richtext }}
+            </div>
+            {% for item in page.gallery_images.all|slice:"3:4" %}
+            <div class="portfolio-gallery-image gallery-5">
+                {% image item.image fill-2000x1400 %}
+            </div> 
+            {% endfor %}
+            
+    </div>
+</div>
+
+
+
+    
+
+    
+
+{% endblock %}
