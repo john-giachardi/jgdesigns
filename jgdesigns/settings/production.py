@@ -5,7 +5,7 @@ from .base import *
 DEBUG = False
 
 # Update the ALLOWED_HOSTS list with your production domain or IP address
-ALLOWED_HOSTS = ['your-production-domain.com', 'your-server-ip']
+ALLOWED_HOSTS = ['your-production-domain.com', '188.166.159.24']
 
 # Configure your production database (e.g., PostgreSQL, MySQL)
 DATABASES = {
