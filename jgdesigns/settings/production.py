@@ -11,9 +11,9 @@ ALLOWED_HOSTS = ['your-production-domain.com', 'your-server-ip']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'your_database_name',
-        'USER': 'your_database_user',
-        'PASSWORD': 'your_database_password',
+        'NAME': 'rooted',
+        'USER': 'johnyg',
+        'PASSWORD': 'Compaq15',
         'HOST': 'localhost',  # Set to your database server's hostname or IP
         'PORT': '',           # Leave empty to use the default database port
     }
