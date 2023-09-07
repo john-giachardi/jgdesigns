@@ -12,9 +12,15 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from dotenv import load_dotenv
+from decouple import config
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
+
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+SECRET_KEY = config('DJANGO_SECRET_KEY', default='')
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 
 # Quick-start development settings - unsuitable for production
@@ -87,12 +93,30 @@ WSGI_APPLICATION = "jgdesigns.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+#     }
+# }
+# DEBUG = True  
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+    },
+    'production': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER': os.environ.get('DATABASE_USER'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'HOST': os.environ.get('DATABASE_HOST'),
+        'PORT': os.environ.get('DATABASE_PORT'),
+    },
 }
+
+# DATABASES['default'] = DATABASES['dev' if DEBUG else 'production']
 
 
 # Password validation
