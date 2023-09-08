@@ -8,16 +8,16 @@ DEBUG = False
 ALLOWED_HOSTS = ['your-production-domain.com', '188.166.159.24']
 
 # Configure your production database (e.g., PostgreSQL, MySQL)
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'rooted',
-        'USER': 'johnyg',
-        'PASSWORD': 'Compaq15',
-        'HOST': 'localhost',  # Set to your database server's hostname or IP
-        'PORT': '',           # Leave empty to use the default database port
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'rooted',
+#         'USER': 'johnyg',
+#         'PASSWORD': 'Compaq15',
+#         'HOST': 'localhost',  # Set to your database server's hostname or IP
+#         'PORT': '',           # Leave empty to use the default database port
+#     }
+# }
 
 # Static and media file settings
 STATIC_URL = '/static/'
