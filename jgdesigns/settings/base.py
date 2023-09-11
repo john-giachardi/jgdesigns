@@ -18,8 +18,9 @@ from decouple import config
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
 
-load_dotenv(os.path.join(BASE_DIR, '.env'))
-SECRET_KEY = config('DJANGO_SECRET_KEY', default='')
+# load_dotenv(os.path.join(BASE_DIR, '.env'))
+load_dotenv()
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 
