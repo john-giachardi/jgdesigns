@@ -112,7 +112,7 @@ DATABASES = {
         'NAME': os.environ.get('rooted'),
         'USER': os.environ.get('johnyg'),
         'PASSWORD': os.environ.get('Compaq15'),
-        'HOST': os.environ.get('DATABASE_HOST'),
+        'HOST': os.environ.get('localhost'),
         'PORT': os.environ.get('DATABASE_PORT'),
     },
 }
