@@ -109,9 +109,9 @@ DATABASES = {
     },
     'production': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DATABASE_NAME'),
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'NAME': os.environ.get('rooted'),
+        'USER': os.environ.get('johnyg'),
+        'PASSWORD': os.environ.get('Compaq15'),
         'HOST': os.environ.get('DATABASE_HOST'),
         'PORT': os.environ.get('DATABASE_PORT'),
     },
