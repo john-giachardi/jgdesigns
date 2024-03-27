@@ -2,7 +2,7 @@
 
 from .base import *
 
-DEBUG = False
+DEBUG = True
 
 # Update the ALLOWED_HOSTS list with your production domain or IP address
 ALLOWED_HOSTS = ['rootedgardendesign.com']
