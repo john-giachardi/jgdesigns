@@ -1,56 +1,7 @@
 /* fonts css */
 @font-face {
-  font-family: "MARION & The essentials";
-  src: url("../fonts/MARIONTheessentials.woff2") format("woff2"), url("../fontsMARIONTheessentials.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Linden Hill";
-  src: url("../fonts/LindenHill-Regular.woff2") format("woff2"), url("../fonts/LindenHill-Regular.woff") format("woff"), url("../fonts/LindenHill-Regular.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Linden Hill";
-  src: url("../fonts/LindenHill-Italic.woff2") format("woff2"), url("../fonts/LindenHill-Italic.woff") format("woff"), url("../fonts/LindenHill-Italic.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
   font-family: "Zurich Light";
   src: url("../fonts/zurich-light.woff2") format("woff2"), url("../fonts/zurich-light.eot") format("eot"), url("../fonts/zurich-light.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "FF Scala";
-  src: url("../fonts/FFScala.woff2") format("woff2"), url("../fonts/FFScala.eot") format("eot"), url("../fonts/FFScala.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "SabonLTPro Roman";
-  src: url("../fonts/SabonLTPro-Roman/3251A1_1_0.woff2") format("woff2"), url("../fonts/SabonLTPro-Roman/3251A1_1_0.eot") format("eot"), url("../fonts/SabonLTPro-Roman/3251A1_1_0.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "SabonLTStd Bold";
-  src: url("../fonts/SabonLTStd-Bold/3251A1_3_0.woff2") format("woff2"), url("../fonts/SabonLTStd-Bold/3251A1_3_0.eot") format("eot"), url("../fonts/SabonLTStd-Bold/3251A1_3_0_0.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Trend Rough Sans";
-  src: url("../fonts/Trend Rough Sans W00 One.woff") format("woff2"), url("../fonts/Trend Rough Sans W00 One.woff2") format("woff2"), url("../fonts/Trend Rough Sans W00 One.eot") format("eot"), url("../fonts/Trend Rough Sans W00 One.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -59,11 +10,11 @@
 /* body css */
 body {
   color: #333333;
-  font-family: "SabonLTPro Roman";
+  font-family: "Zurich Light";
   font-weight: normal;
   font-style: normal;
   font-size: 20px;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
   background: #fafaf2;
 }
@@ -74,7 +25,7 @@ a {
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.5;
 }
 @media (max-width: 767px) {
   p {
@@ -83,26 +34,37 @@ p {
 }
 
 a.button {
-  border: 2px solid #bfa6a6;
-  padding: 4px 20px;
+  padding: 8px 0px;
   text-transform: capitalize;
   margin-top: 0.75em;
   display: inline-block;
   font-family: "Zurich Light";
   transition: all 0.2s ease;
+  position: relative;
+  font-size: 20px;
 }
-a.button:hover {
-  background: #bfa6a6;
-  color: #fdfdfa;
+a.button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 25%;
+  height: 2px;
+  background: #222;
+  transition: all 0.2s ease;
+}
+a.button:hover:after {
+  content: "";
+  width: 100%;
 }
 
 h1, h2 {
-  font-family: "Trend Rough Sans";
+  font-family: "Zurich Light";
   font-weight: normal;
-  font-size: 34px;
+  font-size: 36px;
   line-height: 1.2;
   margin-bottom: 0.5em;
-  letter-spacing: -1px;
+  letter-spacing: 0px;
 }
 @media (max-width: 1023px) {
   h1, h2 {
@@ -114,7 +76,7 @@ h3 {
   font-weight: normal;
   font-size: 22px;
   line-height: 1.2;
-  font-family: "Trend Rough Sans";
+  font-family: "Zurich Light";
 }
 
 h4 {
@@ -142,7 +104,7 @@ h4 {
 }
 
 .colour-content-wrapper {
-  background: #bfa6a6;
+  background: #dbe7df;
 }
 
 .content-wrapper.no-top {
@@ -150,7 +112,7 @@ h4 {
 }
 
 .main-text-intro {
-  font-size: 30px;
+  font-size: 26px;
   margin: 0 auto;
   max-width: 1200px;
   text-align: center;
@@ -228,29 +190,41 @@ ul {
 header {
   background: white;
   width: 100%;
-  border-bottom: 1px solid #202020;
 }
 
 navbar.main-menu {
   display: flex;
   justify-content: space-between;
-  padding: 1vw 3vw;
+  padding: 0.5vw 3vw;
   align-items: center;
   max-width: 1800px;
   margin: 0 auto;
+}
+
+.main-menu-logo {
+  margin-top: -8px;
+}
+
+@media (max-width: 1023px) {
+  .main-menu-logo img {
+    height: 60px;
+  }
 }
 
 .main-menu-logo a {
   display: flex;
 }
 
-.main-menu-links {
+.main-menu-links-left, .main-menu-links-right {
   display: flex;
   gap: 0 30px;
   font-family: "Zurich Light";
+  font-size: 18px;
+  flex-grow: 1;
+  flex-basis: 0;
 }
 @media (max-width: 1023px) {
-  .main-menu-links {
+  .main-menu-links-left, .main-menu-links-right {
     opacity: 0;
     overflow: hidden;
     transition: opacity 0.2s linear;
@@ -265,21 +239,49 @@ navbar.main-menu {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    font-size: 6vmin;
+    font-size: 4.5vmin;
     row-gap: 3vmin;
+  }
+}
+@media (max-width: 767px) {
+  .main-menu-links-left, .main-menu-links-right {
+    font-size: 6vmin;
+  }
+}
+
+.main-menu-links-left {
+  justify-content: flex-start;
+}
+@media (max-width: 1023px) {
+  .main-menu-links-left {
+    top: 0;
+    justify-content: flex-end;
+    height: 50vh;
+  }
+}
+
+.main-menu-links-right {
+  justify-content: flex-end;
+}
+@media (max-width: 1023px) {
+  .main-menu-links-right {
+    top: 50%;
+    height: 50vh;
+    justify-content: flex-start;
+    padding-top: 3vmin;
   }
 }
 
 .main-menu-links a {
-  border-bottom: 1px solid #fdfdfa;
+  border-bottom: 2px solid white;
   transition: opacity 0.05s ease;
 }
 .main-menu-links a:hover {
-  border-bottom: 4px solid #bfa6a6;
+  border-bottom: 2px solid;
 }
 
 .main-menu-links a.nav-link.active {
-  border-bottom: 4px solid #bfa6a6;
+  border-bottom: 2px solid;
 }
 
 @media (max-width: 1023px) {
@@ -355,11 +357,6 @@ button.burger-menu {
 .burger-menu.button-active .burger-bottom {
   transform: translatex(3.5px) rotate(135deg);
   width: 28px;
-}
-
-.site-logo {
-  height: 34px;
-  padding: 0.75em 0;
 }
 
 /* footer css */
@@ -473,7 +470,7 @@ footer .content-wrapper {
 }
 
 .blog-intro-text .intro {
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .blog-posts-wrapper {
@@ -526,16 +523,15 @@ footer .content-wrapper {
 }
 
 .blog-page-content h1 {
-  font-family: "Trend Rough Sans";
-  font-size: 50px;
+  font-family: "Zurich Light";
+  font-size: 36px;
   margin: 0;
   margin-bottom: 3vw;
   line-height: 1;
 }
 
 .blog-page-content .intro {
-  font-style: italic;
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1.2;
 }
 
@@ -566,8 +562,7 @@ footer .content-wrapper {
 }
 
 .blog-page-main-text h2 {
-  font-family: "Linden Hill";
-  font-size: 34px;
+  font-size: 30px;
   margin-bottom: 0;
 }
 
@@ -618,9 +613,9 @@ a.return-link {
 }
 
 .contact-content1 h3 {
-  font-size: 24px;
-  line-height: 1.8;
-  font-family: "Trend Rough Sans";
+  font-size: 26px;
+  line-height: 1.6;
+  font-family: "Zurich Light";
 }
 
 .contact-details {
@@ -635,7 +630,7 @@ a.return-link {
   margin: 0;
   font-weight: normal;
   font-size: 20px;
-  font-family: "Trend Rough Sans";
+  font-family: "Zurich Light";
   margin-bottom: 0.5em;
 }
 
@@ -731,7 +726,7 @@ a.return-link {
 
 .design-process-intro-text {
   width: 50%;
-  font-size: 22px;
+  font-size: 20px;
 }
 @media (max-width: 767px) {
   .design-process-intro-text {
@@ -795,7 +790,7 @@ a.return-link {
 }
 
 .project-stage {
-  font-family: "Trend Rough Sans";
+  font-family: "Zurich Light";
 }
 
 .project-stage a {
@@ -806,14 +801,19 @@ a.return-link {
 }
 
 .project-stage a.active {
-  border-left: 4px solid #bfa6a6;
-  color: #bfa6a6;
+  border-left: 4px solid #879b8d;
+  color: #879b8d;
 }
 
 .design-process-steps {
   display: flex;
   flex-direction: column;
   gap: 2em;
+}
+
+.design-process-step {
+  border-bottom: 1px solid;
+  padding-bottom: 1em;
 }
 
 .design-process-step-content {
@@ -827,9 +827,8 @@ a.return-link {
 
 .design-process-step h3 {
   font-size: 26px;
-  font-family: "Trend Rough Sans";
+  font-family: "Zurich Light";
   margin-top: 0.5em;
-  letter-spacing: -1px;
 }
 @media (max-width: 767px) {
   .design-process-step h3 {
