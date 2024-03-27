@@ -5,7 +5,6 @@ db.sqlite3
 myproject/settings/secret.py
 
 # Ignore static and media files (if you're using them)
-jgdesigns/static/
 jgdesigns/media/
 
 # Ignore virtual environment directories (e.g., if you're using venv or virtualenv)
