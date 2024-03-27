@@ -8,7 +8,6 @@ from wagtail.admin.panels import FieldPanel, InlinePanel, MultiFieldPanel
 from wagtail.images.edit_handlers import FieldPanel
 from blog.models import BlogPage
 
-
 class HomePage(Page):
     body = RichTextField(blank=True)
 
@@ -119,7 +118,7 @@ class HomePageGalleryImage(Orderable):
         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
     )
     title = models.TextField(blank=True, max_length=250)
-    caption = models.CharField(blank=True, max_length=500)
+    caption = models.CharField(blank=True, max_length=1000)
     link = models.TextField(blank=True, max_length=100)
 
     panels = [

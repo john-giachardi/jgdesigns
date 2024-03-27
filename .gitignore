@@ -22,3 +22,7 @@ jgdesigns/settings/dev.py
 
 # Ignore logs
 logs/
+
+#Ignore wsgi.py and production.py
+jgdesigns/wsgi.py
+jgdesigns/settings/production.py

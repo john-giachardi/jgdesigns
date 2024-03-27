@@ -34,7 +34,7 @@ class BlogPageTag(TaggedItemBase):
 
 class BlogPage(Page):
     date = models.DateField("Post date")
-    intro = models.CharField(max_length=250)
+    intro = models.CharField(max_length=1000)
     body = RichTextField()
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
 

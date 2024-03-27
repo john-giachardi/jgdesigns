@@ -2,10 +2,10 @@
 
 from .base import *
 
-DEBUG = True
+DEBUG = False
 
 # Update the ALLOWED_HOSTS list with your production domain or IP address
-ALLOWED_HOSTS = ['your-production-domain.com', '188.166.159.24']
+ALLOWED_HOSTS = ['rootedgardendesign.com']
 
 # Configure your production database (e.g., PostgreSQL, MySQL)
 # DATABASES = {
@@ -18,6 +18,18 @@ ALLOWED_HOSTS = ['your-production-domain.com', '188.166.159.24']
 #         'PORT': '',           # Leave empty to use the default database port
 #     }
 # }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/dbname',
+        # for django-redis < 3.8.0, use:
+        # 'LOCATION': '127.0.0.1:6379',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
 
 # Static and media file settings
 STATIC_URL = '/static/'
